@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap");
+
+.to-do-item-container {
+  width: 80%;
+  height: 7vh;
+  border: 1px solid #1890ff;
+  margin: 10px auto;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.task {
+  margin-left: 30px;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.done {
+  text-decoration: line-through;
+}
+.icon {
+  margin-right: 30px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
