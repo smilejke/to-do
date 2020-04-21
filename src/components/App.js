@@ -3,6 +3,7 @@ import InputToDo from "./Input/Input.js";
 import ToDoItem from "./toDoItem/ToDoItem.js";
 import NothingToDo from "./NothingToDo/NothingToDo.js";
 import { connect } from "react-redux";
+import { getRandomImage } from "./NothingToDo/backgrounds.js";
 
 function App(props) {
   const { todos } = props;
@@ -19,7 +20,7 @@ function App(props) {
           />
         ))
       ) : (
-        <NothingToDo />
+        <NothingToDo image={getRandomImage()} />
       )}
     </div>
   );

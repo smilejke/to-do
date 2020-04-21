@@ -13,6 +13,9 @@ function InputToDo(props) {
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
+  const ifEmpty = (str) => {
+    return !(str.length === 0 || !str.trim());
+  };
 
   return (
     <Search
@@ -22,7 +25,7 @@ function InputToDo(props) {
       value={inputValue}
       onChange={handleChange}
       onSearch={(value) => {
-        if (value) {
+        if (ifEmpty(value)) {
           addTask(value);
           setInputValue("");
         }
