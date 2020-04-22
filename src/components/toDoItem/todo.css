@@ -4,13 +4,17 @@
   border: 1px solid #1890ff;
   background-color: #fff;
   margin: 13px auto;
-  border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
+.rounded {
+  border-radius: 25px;
+}
+.triangular {
+  transform: skew(20deg);
+}
 .task {
   margin-left: 30px;
   font-family: "Montserrat", sans-serif;

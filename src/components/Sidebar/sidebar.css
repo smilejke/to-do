@@ -14,7 +14,25 @@
   border-left: 1px solid #1890ff;
   z-index: 5;
 }
+.sidebar-container div {
+  display: flex;
+  flex-direction: column;
+}
 .sidebar-show {
   transform: translateX(0);
   transition: transform 1s ease;
+}
+.sidebar-container ul li {
+  list-style-type: none;
+  margin: 5px 0 5px 50px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.sidebar-container ul li:hover {
+  color: #fff;
+}
+.sidebar-container span {
+  font-size: 2rem;
+  margin: 10px auto 20px auto;
+  font-family: "Shadows Into Light", cursive;
 }

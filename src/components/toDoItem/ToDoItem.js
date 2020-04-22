@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 function ToDoItem(props) {
   return (
-    <div className={"to-do-item-container to-do-show"} id={props.text}>
+    <div className={"to-do-item-container to-do-show rounded"} id={props.text}>
       <Checkbox
         checked={props.checked}
         className={props.checked ? "task done" : "task"}
