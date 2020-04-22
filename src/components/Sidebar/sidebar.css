@@ -1,0 +1,20 @@
+.sidebar-container {
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(
+    115deg,
+    rgb(94, 173, 238) 0%,
+    rgb(195, 156, 228) 100%
+  );
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(300px);
+  transition: transform 1s ease;
+  border-left: 1px solid #1890ff;
+  z-index: 5;
+}
+.sidebar-show {
+  transform: translateX(0);
+  transition: transform 1s ease;
+}

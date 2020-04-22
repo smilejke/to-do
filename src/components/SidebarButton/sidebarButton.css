@@ -1,0 +1,13 @@
+.sidebar-button {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  transform: translateX(0);
+  transition: transform 1s ease;
+}
+.sidebar-button-moved {
+  transform: translateX(-300px);
+  transition: transform 1s ease;
+}
