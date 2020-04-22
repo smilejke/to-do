@@ -7,10 +7,14 @@ import { connect } from "react-redux";
 
 function ToDoItem(props) {
   return (
-    <div className={"to-do-item-container to-do-show rounded"} id={props.text}>
+    <div className={props.classes.join(" ")} id={props.text}>
       <Checkbox
         checked={props.checked}
-        className={props.checked ? "task done" : "task"}
+        className={
+          props.checked
+            ? `${props.taskClasses.join(" ")} done`
+            : props.taskClasses.join(" ")
+        }
         id={props.text}
         onChange={(e) => {
           props.check(e.target.id);
@@ -32,6 +36,8 @@ function ToDoItem(props) {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
+    classes: state.formClasses,
+    taskClasses: state.taskClasses,
   };
 };
 
