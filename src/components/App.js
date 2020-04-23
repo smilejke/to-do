@@ -11,7 +11,7 @@ function App(props) {
   const { todos } = props;
 
   return (
-    <div className="app">
+    <div className={props.themes.join(" ")}>
       <div className="todo-placement">
         <InputToDo />
         {todos.length > 0 ? (
@@ -35,6 +35,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
+    themes: state.themes,
   };
 };
 

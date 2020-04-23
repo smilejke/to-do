@@ -1,5 +1,33 @@
 .app {
-  width: 100%;
+  min-height: 100vh;
+}
+.blue {
+  background: radial-gradient(
+    circle,
+    rgb(122, 179, 255) 0%,
+    rgb(54, 88, 238) 100%
+  );
+}
+.gold {
+  background: radial-gradient(
+    circle,
+    rgb(243, 230, 174) 0%,
+    rgb(226, 214, 39) 100%
+  );
+}
+.yellow-green {
+  background: radial-gradient(
+    circle,
+    rgb(245, 247, 157) 0%,
+    rgb(154, 253, 134) 100%
+  );
+}
+.purple {
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 .todo-placement {
   display: flex;

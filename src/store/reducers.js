@@ -11,6 +11,10 @@ import {
   SET_OSWALD,
   SET_UBUNTU,
   SET_BANGERS,
+  GOLD_THEME,
+  BLUE_THEME,
+  PURPLE_THEME,
+  YELLOW_GREEN_THEME,
 } from "./actions.js";
 
 export function updateObject(oldObject, newValues) {
@@ -25,6 +29,8 @@ const defaultState = {
   ],
   formClasses: ["to-do-item-container"],
   taskClasses: ["task"],
+  themes: ["app"],
+  sideBarThemes: ["sidebar-container"],
 };
 
 export const rootReducer = (state = defaultState, action) => {
@@ -160,7 +166,82 @@ export const rootReducer = (state = defaultState, action) => {
           "bangers",
         ],
       });
-
+    case GOLD_THEME:
+      return updateObject(state, {
+        themes: [
+          ...state.themes.filter(
+            (el) => el !== "blue" && el !== "yellow-green" && el !== "purple"
+          ),
+          "gold",
+        ],
+        sideBarThemes: [
+          ...state.sideBarThemes.filter(
+            (el) =>
+              el !== "blue-sidebar" &&
+              el !== "yellow-green-sidebar" &&
+              el !== "purple-sidebar"
+          ),
+          "gold-sidebar",
+          "sidebar-show",
+        ],
+      });
+    case BLUE_THEME:
+      return updateObject(state, {
+        themes: [
+          ...state.themes.filter(
+            (el) => el !== "gold" && el !== "yellow-green" && el !== "purple"
+          ),
+          "blue",
+        ],
+        sideBarThemes: [
+          ...state.sideBarThemes.filter(
+            (el) =>
+              el !== "gold-sidebar" &&
+              el !== "yellow-green-sidebar" &&
+              el !== "purple-sidebar"
+          ),
+          "blue-sidebar",
+          "sidebar-show",
+        ],
+      });
+    case PURPLE_THEME:
+      return updateObject(state, {
+        themes: [
+          ...state.themes.filter(
+            (el) => el !== "gold" && el !== "yellow-green" && el !== "blue"
+          ),
+          "purple",
+        ],
+        sideBarThemes: [
+          ...state.sideBarThemes.filter(
+            (el) =>
+              el !== "gold-sidebar" &&
+              el !== "yellow-green-sidebar" &&
+              el !== "blue-sidebar"
+          ),
+          "purple-sidebar",
+          "sidebar-show",
+        ],
+      });
+    case YELLOW_GREEN_THEME:
+      return updateObject(state, {
+        themes: [
+          ...state.themes.filter(
+            (el) => el !== "gold" && el !== "purple" && el !== "blue"
+          ),
+          "yellow-green",
+        ],
+        sideBarThemes: [
+          ...state.sideBarThemes.filter(
+            (el) =>
+              el !== "gold-sidebar" &&
+              el !== "purple-sidebar" &&
+              el !== "blue-sidebar"
+          ),
+          "yellow-green-sidebar",
+          "sidebar-show",
+        ],
+      });
     default:
       return state;
   }

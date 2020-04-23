@@ -10,6 +10,10 @@ export const SET_MONTSERRAT = "SET_MONTSERRAT";
 export const SET_OSWALD = "SET_OSWALD";
 export const SET_UBUNTU = "SET_UBUNTU";
 export const SET_BANGERS = "SET_BANGERS";
+export const GOLD_THEME = "GOLD_THEME";
+export const BLUE_THEME = "BLUE_THEME";
+export const PURPLE_THEME = "PURPLE_THEME";
+export const YELLOW_GREEN_THEME = "YELLOW_GREEN_THEME";
 
 export const addTask = (task) => {
   return {
@@ -78,5 +82,25 @@ export const makeUbuntu = () => {
 export const makeBangers = () => {
   return {
     type: SET_BANGERS,
+  };
+};
+export const setBlueTheme = () => {
+  return {
+    type: BLUE_THEME,
+  };
+};
+export const setGoldTheme = () => {
+  return {
+    type: GOLD_THEME,
+  };
+};
+export const setPurpleTheme = () => {
+  return {
+    type: PURPLE_THEME,
+  };
+};
+export const setYGreenTheme = () => {
+  return {
+    type: YELLOW_GREEN_THEME,
   };
 };

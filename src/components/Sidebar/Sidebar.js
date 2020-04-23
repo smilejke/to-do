@@ -9,13 +9,17 @@ import {
   makeOswald,
   makeUbuntu,
   makeBangers,
+  setBlueTheme,
+  setGoldTheme,
+  setPurpleTheme,
+  setYGreenTheme,
 } from "../../store/actions.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 function Sidebar(props) {
   return (
-    <div className="sidebar-container">
+    <div className={props.sideBarThemes.join(" ")}>
       <div>
         <span>Tasks style</span>
         <ul>
@@ -46,10 +50,34 @@ function Sidebar(props) {
       <div>
         <span>Theme</span>
         <ul>
-          <li>Default(Light)</li>
-          <li>Dark</li>
-          <li>Purple</li>
-          <li>Yellow-Green</li>
+          <li
+            onClick={() => {
+              props.setGoldTheme();
+            }}
+          >
+            Gold
+          </li>
+          <li
+            onClick={() => {
+              props.setBlueTheme();
+            }}
+          >
+            Blue
+          </li>
+          <li
+            onClick={() => {
+              props.setPurpleTheme();
+            }}
+          >
+            Purple
+          </li>
+          <li
+            onClick={() => {
+              props.setYGreenTheme();
+            }}
+          >
+            Yellow-Green
+          </li>
         </ul>
       </div>
 
@@ -107,6 +135,7 @@ function Sidebar(props) {
 const mapStateToProps = (state) => {
   return {
     classes: state.formClasses,
+    sideBarThemes: state.sideBarThemes,
   };
 };
 
@@ -121,6 +150,11 @@ const mapDispatchToProps = (dispatch) => {
     makeOswald: bindActionCreators(makeOswald, dispatch),
     makeUbuntu: bindActionCreators(makeUbuntu, dispatch),
     makeBangers: bindActionCreators(makeBangers, dispatch),
+
+    setBlueTheme: bindActionCreators(setBlueTheme, dispatch),
+    setGoldTheme: bindActionCreators(setGoldTheme, dispatch),
+    setPurpleTheme: bindActionCreators(setPurpleTheme, dispatch),
+    setYGreenTheme: bindActionCreators(setYGreenTheme, dispatch),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
