@@ -1,19 +1,7 @@
 import React from "react";
-import {
-  makeRounded,
-  makeSquare,
-  makePyramid,
-  makeRaleway,
-  makeShadowIntoLight,
-  makeMontserrat,
-  makeOswald,
-  makeUbuntu,
-  makeBangers,
-  setBlueTheme,
-  setGoldTheme,
-  setPurpleTheme,
-  setYGreenTheme,
-} from "../../store/actions.js";
+import { setFormTheme } from "../../store/formThemes/actions.js";
+import { setFont } from "../../store/fontThemes/actions.js";
+import { setColorTheme } from "../../store/colorThemes/actions.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -25,21 +13,21 @@ function Sidebar(props) {
         <ul>
           <li
             onClick={() => {
-              props.makeSquare();
+              props.setFormTheme("");
             }}
           >
             Default(Square)
           </li>
           <li
             onClick={() => {
-              props.makeRounded();
+              props.setFormTheme("rounded");
             }}
           >
             Rounded
           </li>
           <li
             onClick={() => {
-              props.makePyramid();
+              props.setFormTheme("pyramid");
             }}
           >
             Pyramid
@@ -52,28 +40,28 @@ function Sidebar(props) {
         <ul>
           <li
             onClick={() => {
-              props.setGoldTheme();
+              props.setColorTheme("gold");
             }}
           >
             Gold
           </li>
           <li
             onClick={() => {
-              props.setBlueTheme();
+              props.setColorTheme("blue");
             }}
           >
             Blue
           </li>
           <li
             onClick={() => {
-              props.setPurpleTheme();
+              props.setColorTheme("purple");
             }}
           >
             Purple
           </li>
           <li
             onClick={() => {
-              props.setYGreenTheme();
+              props.setColorTheme("yellow-green");
             }}
           >
             Yellow-Green
@@ -86,42 +74,42 @@ function Sidebar(props) {
         <ul>
           <li
             onClick={() => {
-              props.makeRaleway();
+              props.setFont("raleway");
             }}
           >
             Raleway (en)
           </li>
           <li
             onClick={() => {
-              props.makeShadowIntoLight();
+              props.setFont("shadow-into-light");
             }}
           >
             Shadows Into Light (en)
           </li>
           <li
             onClick={() => {
-              props.makeBangers();
+              props.setFont("bangers");
             }}
           >
             Bangers (en)
           </li>
           <li
             onClick={() => {
-              props.makeMontserrat();
+              props.setFont("montserrat");
             }}
           >
             Montserrat (en/ru)
           </li>
           <li
             onClick={() => {
-              props.makeOswald();
+              props.setFont("oswald");
             }}
           >
             Oswald (en/ru)
           </li>
           <li
             onClick={() => {
-              props.makeUbuntu();
+              props.setFont("ubuntu");
             }}
           >
             Ubuntu (en/ru)
@@ -134,27 +122,16 @@ function Sidebar(props) {
 
 const mapStateToProps = (state) => {
   return {
-    classes: state.formClasses,
-    sideBarThemes: state.sideBarThemes,
+    classes: state.forms.formClasses,
+    sideBarThemes: state.colors.sideBarThemes,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    makeRounded: bindActionCreators(makeRounded, dispatch),
-    makeSquare: bindActionCreators(makeSquare, dispatch),
-    makePyramid: bindActionCreators(makePyramid, dispatch),
-    makeRaleway: bindActionCreators(makeRaleway, dispatch),
-    makeShadowIntoLight: bindActionCreators(makeShadowIntoLight, dispatch),
-    makeMontserrat: bindActionCreators(makeMontserrat, dispatch),
-    makeOswald: bindActionCreators(makeOswald, dispatch),
-    makeUbuntu: bindActionCreators(makeUbuntu, dispatch),
-    makeBangers: bindActionCreators(makeBangers, dispatch),
-
-    setBlueTheme: bindActionCreators(setBlueTheme, dispatch),
-    setGoldTheme: bindActionCreators(setGoldTheme, dispatch),
-    setPurpleTheme: bindActionCreators(setPurpleTheme, dispatch),
-    setYGreenTheme: bindActionCreators(setYGreenTheme, dispatch),
+    setFormTheme: bindActionCreators(setFormTheme, dispatch),
+    setFont: bindActionCreators(setFont, dispatch),
+    setColorTheme: bindActionCreators(setColorTheme, dispatch),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

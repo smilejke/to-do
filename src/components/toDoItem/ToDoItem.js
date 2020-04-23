@@ -1,7 +1,7 @@
 import React from "react";
 import { Checkbox } from "antd";
 import { DeleteTwoTone } from "@ant-design/icons";
-import { deleteTask, check } from "../../store/actions.js";
+import { deleteTask, check } from "../../store/toDoFunctional/actions.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -35,9 +35,9 @@ function ToDoItem(props) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
-    classes: state.formClasses,
-    taskClasses: state.taskClasses,
+    todos: state.actions.todos,
+    classes: state.forms.formClasses,
+    taskClasses: state.fonts.taskClasses,
   };
 };
 

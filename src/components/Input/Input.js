@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "antd";
-import { addTask } from "../../store/actions.js";
+import { addTask } from "../../store/toDoFunctional/actions.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -37,7 +37,7 @@ function InputToDo(props) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
+    todos: state.actions.todos,
   };
 };
 

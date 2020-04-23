@@ -34,8 +34,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
-    themes: state.themes,
+    todos: state.actions.todos,
+    themes: state.colors.themes,
   };
 };
 
