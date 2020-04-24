@@ -1,8 +1,5 @@
 import { SET_FONT } from "./actions.js";
-
-export function updateObject(oldObject, newValues) {
-  return Object.assign({}, oldObject, newValues);
-}
+import { updateObject } from "../../utils/utilites.js";
 
 const defaultState = {
   taskClasses: ["task"],

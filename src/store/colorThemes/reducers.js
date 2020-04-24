@@ -1,12 +1,9 @@
 import { SET_COLOR_THEME } from "./actions.js";
-
-export function updateObject(oldObject, newValues) {
-  return Object.assign({}, oldObject, newValues);
-}
+import { updateObject } from "../../utils/utilites.js";
 
 const defaultState = {
-  themes: ["app"],
-  sideBarThemes: ["sidebar-container"],
+  themes: ["app purple"],
+  sideBarThemes: ["sidebar-container purple-sidebar"],
 };
 
 export const colorReducer = (state = defaultState, action) => {

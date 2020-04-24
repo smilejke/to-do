@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 .sidebar-container ul li:hover {
-  color: #fff;
+  text-shadow: 1px 1px 2px black;
 }
 .sidebar-container span {
   font-size: 2rem;

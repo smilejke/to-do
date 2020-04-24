@@ -1,8 +1,5 @@
 import { ADD_TASK, DELETE_TASK, CHECK_TASK } from "./actions.js";
-
-export function updateObject(oldObject, newValues) {
-  return Object.assign({}, oldObject, newValues);
-}
+import { updateObject } from "../../utils/utilites.js";
 
 const defaultState = {
   todos: [
