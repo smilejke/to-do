@@ -13,14 +13,12 @@ export const functionalReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_TASK:
       return updateObject(state, {
-        todos: state.todos.some((el) => el.text === action.payload)
+        todos: state.todos.some((el) => el.text === action.payload.trim())
           ? [...state.todos]
           : [
               ...state.todos,
               {
-                text: action.payload
-                  .replace(/^\s\s*/, "")
-                  .replace(/\s\s*$/, ""), // faster than trim
+                text: action.payload.trim(), // .replace(/^\s\s*/, "").replace(/\s\s*$/, "")
                 checked: false,
               },
             ],

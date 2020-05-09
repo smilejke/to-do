@@ -18,20 +18,23 @@ function InputToDo(props) {
   };
 
   return (
-    <Search
-      placeholder="What to do?"
-      enterButton="Add task"
-      size="large"
-      value={inputValue}
-      onChange={handleChange}
-      onSearch={(value) => {
-        if (ifEmpty(value)) {
-          addTask(value);
-          setInputValue("");
-        }
-      }}
-      className="input"
-    />
+    <div className="input-container">
+      <span className="validation">You need to do something</span>
+      <Search
+        placeholder="What to do?"
+        enterButton="Add task"
+        size="large"
+        value={inputValue}
+        onChange={handleChange}
+        onSearch={(value) => {
+          if (ifEmpty(value)) {
+            addTask(value);
+            setInputValue("");
+          }
+        }}
+        className="input"
+      />
+    </div>
   );
 }
 

@@ -1,11 +1,12 @@
 .app {
   min-height: 100vh;
+  padding-bottom: 100px;
 }
 .blue {
   background: radial-gradient(
     circle,
-    rgb(122, 179, 255) 0%,
-    rgb(54, 88, 238) 100%
+    rgb(134, 184, 248) 0%,
+    rgb(4, 20, 92) 100%
   );
 }
 .gold {
