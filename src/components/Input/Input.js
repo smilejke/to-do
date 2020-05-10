@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import { Input } from "antd";
-import { addTask } from "../../store/toDoFunctional/actions.js";
+import { addTask, validate } from "../../store/toDoFunctional/actions.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import ValidationText from "./ValidationText/ValidationText.js";
 
 const { Search } = Input;
 
 function InputToDo(props) {
-  const { addTask } = props;
+  const { addTask, validate, validationStatus } = props;
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
+    validate(e.target.value);
     setInputValue(e.target.value);
-  };
-  const ifEmpty = (str) => {
-    return !(str.length === 0 || !str.trim());
   };
 
   return (
     <div className="input-container">
-      <span className="validation">You need to do something</span>
+      <ValidationText status={validationStatus} />
       <Search
         placeholder="What to do?"
         enterButton="Add task"
@@ -27,7 +26,7 @@ function InputToDo(props) {
         value={inputValue}
         onChange={handleChange}
         onSearch={(value) => {
-          if (ifEmpty(value)) {
+          if (validationStatus !== "empty") {
             addTask(value);
             setInputValue("");
           }
@@ -40,6 +39,7 @@ function InputToDo(props) {
 
 const mapStateToProps = (state) => {
   return {
+    validationStatus: state.actions.validationStatus,
     todos: state.actions.todos,
   };
 };
@@ -47,6 +47,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addTask: bindActionCreators(addTask, dispatch),
+    validate: bindActionCreators(validate, dispatch),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(InputToDo);
