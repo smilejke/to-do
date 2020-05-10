@@ -3,6 +3,7 @@ import {
   DELETE_TASK,
   CHECK_TASK,
   VALIDATE_TO_DO,
+  SET_VALIDATION_TO_DEFAULT,
 } from "./actions.js";
 import { updateObject } from "../../utils/utilites.js";
 
@@ -12,7 +13,7 @@ const defaultState = {
     { text: "Learn React.js", checked: false },
     { text: "Learn Redux", checked: false },
   ],
-  validationStatus: "correct",
+  validationStatus: "empty",
 };
 
 export const functionalReducer = (state = defaultState, action) => {
@@ -50,6 +51,10 @@ export const functionalReducer = (state = defaultState, action) => {
             : state.todos.some((el) => el.text === action.payload.trim())
             ? "exist"
             : "correct",
+      });
+    case SET_VALIDATION_TO_DEFAULT:
+      return updateObject(state, {
+        validationStatus: "empty",
       });
     default:
       return state;
